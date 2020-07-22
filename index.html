@@ -1,29 +1,40 @@
 <html>
-
 <head>
   <title>Metro Stations</title>
   <link rel="stylesheet" href="bulma.css">
-  <script src="main.js"></script>
   <meta charset="UTF-8">
 </head>
 <body>
-  <style></style>
   <section>
     <div class="container">
       <section class="section">
         <div class="level">
-          <div class="level-item">
-            <div class="select">
-              <select id="station-selector"></select>
+          <div class="level-left">
+            <div class="level-item">
+              <div class="select">
+                <select id="station-selector">
+                  <option value='pervomayskaya' selected>Первомайская</option>
+                  <option value="nemiga">Немига</option>
+                  <option value='frunzenscaya' >Фрунзенская</option>
+                  <option value='lenina' >Площадь Ленина</option>
+                  <option value='oktyaborskaya'>Окьяборьская</option>
+                  <option value='pobedi'>Площадь победы</option>
+                </select>
+              </div>
+            </div>
+            <div class="level-item">
+              <button class="button" id="show-route">Показать маршрут</button>
             </div>
           </div>
-          <div class="level-item">
-            <button class="button" id="show-route">Показать маршрут</button>
-          </div>
         </div>
+          <div id="map"></div>
       </section>
     </div>
   </section>
+  <script src="main.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJFNNh5Fjyz49x6fzdGQYukHuideHxniA&callback=initMap">
+  </script>  
 </body>
 
 </html>

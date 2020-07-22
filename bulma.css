@@ -15,7 +15,16 @@
     transform: rotate(359deg);
   }
 }
-
+.red-line{
+  color:red;
+}
+.blue-line{
+  color:blue;
+}
+#map {
+  height: 500px;  /* The height is 400 pixels */
+  width: 60%;  /* The width is the width of the web page */
+ }
 .delete, .modal-close, .is-unselectable, .button, .file, .breadcrumb, .pagination-previous,
 .pagination-next,
 .pagination-link,

@@ -1,0 +1,26 @@
+<select id="station-selector">
+    <option value='pervomayskaya' selected>Первомайская</option>
+    <option value="nemiga" selected>Немига</option>
+    <option value='frunzenscaya' >Фрунзенская</option>
+    <option value='lenina' >Площадь Ленина</option>
+    <option value='oktyaborskaya'>Окьяборьская</option>
+    <option value='pobedi'>Площадь победы</option>
+  </select>
+  <script>
+      var markers = ['pervomayskaya_marker','nemiga_marker','frunzenscaya_marker',
+          'lenina_marker','oktyaborskaya_marker','pobedi_marker'
+      ]  
+      var clickmark = function(mark){
+            mark.onclick = function() {
+                console.log('click');
+            }
+      }
+
+      for (i = 0; i < markers.length; i++){
+        clickmark(markers[i])
+          
+              
+      };
+
+
+  </script>
