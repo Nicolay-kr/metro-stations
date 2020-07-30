@@ -1,4 +1,12 @@
 /*! bulma.io v0.8.0 | MIT License | github.com/jgthms/bulma */
+
+
+.header{
+  font-size: 50px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  opacity: 0.9;
+}
 @-webkit-keyframes spinAround {
   from {
     transform: rotate(0deg);
