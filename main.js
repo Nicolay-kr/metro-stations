@@ -29,65 +29,62 @@ function initMap() {
         title: 'It is you',
     });
     
-    let pervomayskaya_marker = new google.maps.Marker({
+    let pervomayskayaMarker = new google.maps.Marker({
         position: pervomayskaya,
         animation: google.maps.Animation.DROP,
         map: map,
         title: 'Первомайская',
     });
 
-    let nemiga_marker = new google.maps.Marker({
+    let nemigaMarker = new google.maps.Marker({
         position: nemiga,
         animation: google.maps.Animation.DROP,
         map: map,
         title: 'Немига',
     });
     
-    let frunzenscaya_marker = new google.maps.Marker({
+    let frunzenscayaMarker = new google.maps.Marker({
         position: frunzenscaya,
         animation: google.maps.Animation.DROP,
         map: map,
         title: 'Фрунзенская',
     });  
-    let lenina_marker = new google.maps.Marker({
+    let leninaMarker = new google.maps.Marker({
         position: lenina,
         animation: google.maps.Animation.DROP,
         map: map,
         title: 'Площадь Ленина',
     });
-    let oktyaborskaya_marker = new google.maps.Marker({
+    let oktyaborskayaMarker = new google.maps.Marker({
         position: oktyaborskaya,
         animation: google.maps.Animation.DROP,
         map: map,
         title: 'Октяборьская',
     });    
-    let pobedi_marker = new google.maps.Marker({
+    let pobediMarker = new google.maps.Marker({
         position: pobedi,
         animation: google.maps.Animation.DROP,
         map: map,
         title: 'Площадь победы',
     });  
-    let markers = [pervomayskaya_marker,nemiga_marker,frunzenscaya_marker,
-        lenina_marker,oktyaborskaya_marker,pobedi_marker
+    let markers = [pervomayskayaMarker,nemigaMarker,frunzenscayaMarker,
+        leninaMarker,oktyaborskayaMarker,pobediMarker
     ]  
 
     // add animation for marker when it choose
 
     select.addEventListener('change', function () {
         map.setCenter(eval(select.value)); 
-        eval(select.value + '_marker').setAnimation(google.maps.Animation.BOUNCE);
-        let stop_animation = function(){
-            return eval(select.value + '_marker').setAnimation(null)
+        eval(select.value + 'Marker').setAnimation(google.maps.Animation.BOUNCE);
+        let stopAnimation = function(){
+            return eval(select.value + 'Marker').setAnimation(null)
         }
-        setTimeout(stop_animation,500)
+        setTimeout(stopAnimation,500)
     });
-
-    let route = document.getElementById('show-route');
 
     // build route from human to station when button was click 
 
     route.addEventListener('click', function () {
-        console.log(select.value);
         directionsService.route(
             {
               origin: HUMAN_POSITION,
@@ -104,12 +101,12 @@ function initMap() {
 
     // build route from human to station when marker was click
 
-    let clickmark = function(mark){
-        mark.addListener('click', function() {
+    let clickMarker = function(marker){
+        marker.addListener('click', function() {
             directionsService.route(
                 {
                   origin: HUMAN_POSITION,
-                  destination: mark.getPosition(),
+                  destination: marker.getPosition(),
                   travelMode: 'WALKING',
                 }, function(response, status) {
                     if (status == "OK") {
@@ -121,6 +118,6 @@ function initMap() {
         });
     }
     for (i = 0; i < markers.length; i++){
-        clickmark(markers[i])
+        clickMarker(markers[i])
     };
 }
